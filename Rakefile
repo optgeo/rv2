@@ -2,8 +2,8 @@ require './constants.rb'
 
 desc 'watch the progress'
 task :watch do
-  sh "watch -n 10 'date; echo -n 'to go:'; ruby yield.rb | wc -l; " +
-  "echo -n 'done : '; ls grid/*.mbtiles | wc -l'"
+  sh "watch -n 10 \"date; echo -n 'to go: '; ruby yield.rb | wc -l; " +
+  "echo -n 'done : '; ls grid/*.mbtiles | wc -l\""
 end
 
 desc 'clean up'
