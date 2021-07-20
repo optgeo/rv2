@@ -1,3 +1,10 @@
+grid
+merge1
+docs/zxy
+tiles.mbtiles*
+.rake_tasks~
+
+
 # Logs
 logs
 *.log
