@@ -35,10 +35,6 @@ layers:
     type: background
     paint: 
       background-color: "#fff"
-  -
-    id: seamlessphoto
-    type: raster
-    source: i
   - 
     id: sabun
     type: fill
@@ -54,12 +50,18 @@ layers:
           - a
         - rgba(255, 255, 255, 0)
         - 1000
-        - rgba(255, 128, 128, #{OPACITY})
+        - rgba(255, 128, 128, #{SABUN_OPACITY})
         - 1500
-        - rgba(217, 74, 117, #{OPACITY})
+        - rgba(217, 74, 117, #{SABUN_OPACITY})
         - 2000
-        - rgba(181, 0, 103, #{OPACITY})
+        - rgba(181, 0, 103, #{SABUN_OPACITY})
       fill-outline-color: rgba(0, 0, 0, 0)
+  - 
+    id: seamlessphoto
+    type: raster
+    source: i
+    paint:
+      raster-opacity: #{PHOTO_OPACITY}
 EOS
 
 style = YAML.load(style)

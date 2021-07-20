@@ -47,7 +47,8 @@ LAYER = 'sabun'
 PROPERTY = 'a'
 
 BASE_URL = 'http://m354:9966'
-OPACITY = 0.8
+SABUN_OPACITY = 1
+PHOTO_OPACITY = 0.5
 
 BASE_STYLE_URL = 'https://gsi-cyberjapan.github.io/gsivectortile-mapbox-gl-js/pale.json'
 

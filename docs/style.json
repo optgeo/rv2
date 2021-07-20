@@ -46,11 +46,6 @@
       }
     },
     {
-      "id": "seamlessphoto",
-      "type": "raster",
-      "source": "i"
-    },
-    {
       "id": "sabun",
       "type": "fill",
       "source": "v",
@@ -66,13 +61,21 @@
           ],
           "rgba(255, 255, 255, 0)",
           1000,
-          "rgba(255, 128, 128, 0.8)",
+          "rgba(255, 128, 128, 1)",
           1500,
-          "rgba(217, 74, 117, 0.8)",
+          "rgba(217, 74, 117, 1)",
           2000,
-          "rgba(181, 0, 103, 0.8)"
+          "rgba(181, 0, 103, 1)"
         ],
         "fill-outline-color": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "id": "seamlessphoto",
+      "type": "raster",
+      "source": "i",
+      "paint": {
+        "raster-opacity": 0.5
       }
     },
     {
