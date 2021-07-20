@@ -2,7 +2,8 @@ require './constants.rb'
 
 desc 'watch the progress'
 task :watch do
-  sh "watch -n 10 'date; ruby yield.rb | wc -l; ls grid/*.mbtiles | wc -l'"
+  sh "watch -n 10 'date; echo -n 'to go:'; ruby yield.rb | wc -l; " +
+  "echo -n 'done : '; ls grid/*.mbtiles | wc -l'"
 end
 
 desc 'clean up'
@@ -58,7 +59,7 @@ task :produce do
       #{deletes.join}
     ';
     ruby merge1.rb | sh;
-    tile-join --force --no-tile-compression
+    tile-join --force
     -o tiles.mbtiles --no-tile-size-limit
     #{MERGE1_DIR}/*.mbtiles;
     tile-join --force --no-tile-compression

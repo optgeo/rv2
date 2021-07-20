@@ -9,7 +9,7 @@ H = 750
 RESAMPLING_METHOD = {
   5 => 'q3',
   25 => 'q3',
-  125 => 'max'
+  125 => 'q3'
 }
 
 ZOOMS = {
@@ -19,14 +19,14 @@ ZOOMS = {
   },
   5 => {
     :maxzoom => 14,
-    :minzoom => 12 
+    :minzoom => 13
   },
   25 => {
-    :maxzoom => 11,
-    :minzoom => 9 
+    :maxzoom => 12,
+    :minzoom => 10
   },
   125 => {
-    :maxzoom => 8,
+    :maxzoom => 9,
     :minzoom => 5
   }
 }
