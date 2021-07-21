@@ -1,9 +1,15 @@
 require './constants.rb'
 
+desc 'create document tarball'
+task :tarball do
+  sh "tar cvzf docs.tar.gz docs"
+end
+
 desc 'watch the progress'
 task :watch do
   sh "watch -n 10 \"date; echo -n 'to go: '; ruby yield.rb | wc -l; " +
-  "echo -n 'done : '; ls grid/*.mbtiles | wc -l\""
+  "echo -n 'done : '; ls grid/*.mbtiles | wc -l; vcgencmd measure_temp; " +
+  "vcgencmd measure_clock arm; w \""
 end
 
 desc 'clean up'
@@ -38,16 +44,25 @@ task :produce do
       ruby filter.rb; 
     EOS
   }
+  commands.push <<-EOS
+    gdal_polygonize.py #{TMP_DIR}/{}_mask.tif -f GeoJSONSeq
+      -q /vsistdout/ #{MASK_LAYER} #{MASK_PROPERTY} | node add_area.js;
+  EOS
   deletes = [125, 25, 5, 1].map {|v|
     <<-EOS
       rm #{TMP_DIR}/{}_#{v}.tif;
     EOS
   }
+  deletes.push <<-EOS
+    rm #{TMP_DIR}/{}_mask.tif
+  EOS
   s = <<-EOS
     ruby yield.rb | shuf |
     parallel -j 3 --line-buffer '
       echo `date` {}; 
       gdal_calc.py --calc=\"100*A\" --outfile=#{TMP_DIR}/{}_1.tif
+        -A #{SRC_DIR}/{}#{SRC_EXT} --quiet --overwrite;
+      gdal_calc.py --calc=\"A>10\" --outfile=#{TMP_DIR}/{}_mask.tif
         -A #{SRC_DIR}/{}#{SRC_EXT} --quiet --overwrite;
       #{warps.join}
       (#{commands.join}) |
@@ -71,7 +86,8 @@ end
 
 desc 'build style'
 task :style do
-  sh "curl #{BASE_STYLE_URL} | ruby style.rb > docs/style.json"
+  #sh "curl #{BASE_STYLE_URL} | ruby style.rb > docs/style.json"
+  sh "cat pale.json | ruby style.rb > docs/style.json"
 end
 
 desc 'host the site'

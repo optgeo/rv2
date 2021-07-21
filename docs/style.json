@@ -1,8 +1,8 @@
 {
   "version": 8,
   "center": [
-    139.9823,
-    35.946883
+    139.037476,
+    35.106428
   ],
   "zoom": 15,
   "sprite": "https://gsi-cyberjapan.github.io/gsivectortile-mapbox-gl-js/sprite/pale",
@@ -42,7 +42,7 @@
       "id": "background",
       "type": "background",
       "paint": {
-        "background-color": "#fff"
+        "background-color": "rgb(255, 255, 255)"
       }
     },
     {
@@ -66,6 +66,30 @@
           "rgba(217, 74, 117, 1)",
           2000,
           "rgba(181, 0, 103, 1)"
+        ],
+        "fill-outline-color": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "id": "mask",
+      "type": "fill",
+      "source": "v",
+      "source-layer": "mask",
+      "minzoom": 15,
+      "maxzoom": 18,
+      "paint": {
+        "fill-color": [
+          "case",
+          [
+            ">",
+            [
+              "get",
+              "a"
+            ],
+            1000
+          ],
+          "rgba(0, 0, 0, 0)",
+          "rgb(189, 189, 189)"
         ],
         "fill-outline-color": "rgba(0, 0, 0, 0)"
       }

@@ -34,7 +34,7 @@ layers:
     id: background
     type: background
     paint: 
-      background-color: "#fff"
+      background-color: #{BACKGROUND_COLOR}
   - 
     id: sabun
     type: fill
@@ -55,6 +55,25 @@ layers:
         - rgba(217, 74, 117, #{SABUN_OPACITY})
         - 2000
         - rgba(181, 0, 103, #{SABUN_OPACITY})
+      fill-outline-color: rgba(0, 0, 0, 0)
+  -
+    id: mask
+    type: fill
+    source: v
+    source-layer: mask
+    minzoom: #{ZOOMS[1][:minzoom]}
+    maxzoom: 18
+    paint:
+      fill-color: 
+        - case 
+        -
+          - '>'
+          -
+            - get
+            - a
+          - 1000
+        - rgba(0, 0, 0, 0)
+        - #{MASK_COLOR}
       fill-outline-color: rgba(0, 0, 0, 0)
   - 
     id: seamlessphoto

@@ -33,22 +33,27 @@ ZOOMS = {
 MINZOOM = 5
 MAXZOOM = 15
 
-TMP_DIR = '/mnt/hdd/tmp'
+TMP_DIR = '/mnt/ramdisk'
 
 GRID_DIR = 'grid'
 MERGE1_DIR = 'merge1'
 
 #TARGETS = /^(523950)/
 #TARGETS = /^(523950|523940)/
-#TARGETS = /^(5338|5339|5135|5132)/
 TARGETS = /^(5132)/
+#TARGETS = /^(5338|5339|5135|5132)/
+#TARGETS = /^(5338|5339|5035|5135|5132)/
 
 LAYER = 'sabun'
 PROPERTY = 'a'
+MASK_LAYER = 'mask'
+MASK_PROPERTY = 'a'
 
 BASE_URL = 'http://m354:9966'
+#BASE_URL = 'http://163.42.60.188:9966/all'
+
 SABUN_OPACITY = 1
 PHOTO_OPACITY = 0.5
-
 BASE_STYLE_URL = 'https://gsi-cyberjapan.github.io/gsivectortile-mapbox-gl-js/pale.json'
-
+BACKGROUND_COLOR = 'rgb(255, 255, 255)'
+MASK_COLOR = 'rgb(189, 189, 189)'

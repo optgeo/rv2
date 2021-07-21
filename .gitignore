@@ -3,7 +3,9 @@ merge1
 docs/zxy
 tiles.mbtiles*
 .rake_tasks~
-
+docs.tar.gz
+pale.json
+yarn.lock
 
 # Logs
 logs

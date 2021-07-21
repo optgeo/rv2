@@ -1,0 +1,12 @@
+{
+  "name": "rv2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:optgeo/rv2",
+  "author": "FUJIMURA Hidenori <hfu@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@mapbox/geojson-area": "^0.2.2",
+    "split": "^1.0.1"
+  }
+}
