@@ -1,6 +1,6 @@
-#SRC_DIR = '/mnt/hdd/02_geotif'
+GRID_ONLY = true
+
 SRC_DIR = '/mnt/hdd/sabun_src'
-#SRC_EXT = '_sabun.tif'
 SRC_EXT = '_sabun.asc'
 
 W = 1125
@@ -37,12 +37,14 @@ TMP_DIR = '/mnt/ramdisk'
 
 GRID_DIR = 'grid'
 MERGE1_DIR = 'merge1'
+SINGLE_MBTILES = 'tiles.mbtiles'
 
 #TARGETS = /^(523950)/
 #TARGETS = /^(523950|523940)/
-TARGETS = /^(5132)/
+#TARGETS = /^(5132)/
 #TARGETS = /^(5338|5339|5135|5132)/
 #TARGETS = /^(5338|5339|5035|5135|5132)/
+TARGETS = /^(5238|5239|5240|5340)/
 
 LAYER = 'sabun'
 PROPERTY = 'a'

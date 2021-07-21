@@ -8,7 +8,7 @@ end
 desc 'watch the progress'
 task :watch do
   sh "watch -n 10 \"date; echo -n 'to go: '; ruby yield.rb | wc -l; " +
-  "echo -n 'done : '; ls grid/*.mbtiles | wc -l; vcgencmd measure_temp; " +
+  "echo -n 'done : '; ls #{GRID_DIR}/*.mbtiles | wc -l; vcgencmd measure_temp; " +
   "vcgencmd measure_clock arm; w \""
 end
 
@@ -73,14 +73,18 @@ task :produce do
       --maximum-zoom=#{MAXZOOM};
       #{deletes.join}
     ';
+  EOS
+  if !GRID_ONLY
+    s += <<-EOS
     ruby merge1.rb | sh;
     tile-join --force
-    -o tiles.mbtiles --no-tile-size-limit
+    -o #{SINGLE_MBTILES} --no-tile-size-limit
     #{MERGE1_DIR}/*.mbtiles;
     tile-join --force --no-tile-compression
     --output-to-directory=docs/zxy --no-tile-size-limit
-    tiles.mbtiles
-  EOS
+    #{SINGLE_MBTILES}
+    EOS
+  end
   sh s.gsub(/\n/, '').squeeze(' ').strip
 end
 
@@ -97,6 +101,6 @@ end
 
 desc 'optimize'
 task :optimize do
-  sh "node ~/vt-optimizer/index.js -m tiles.mbtiles"
+  sh "node ~/vt-optimizer/index.js -m #{SINGLE_MBTILES}"
 end
 
