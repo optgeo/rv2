@@ -9,6 +9,7 @@ desc 'watch the progress'
 task :watch do
   sh "watch -n 10 \"date; echo -n 'to go: '; ruby yield.rb | wc -l; " +
   "echo -n 'done : '; ls #{GRID_DIR}/*.mbtiles | wc -l; vcgencmd measure_temp; " +
+  "vcgencmd measure_volts; " +
   "vcgencmd measure_clock arm; w \""
 end
 

@@ -1,10 +1,39 @@
-GRID_ONLY = true
+#
+# RUNNING MODE
+#
 
+# Produce grid-wise mbtiles only
+GRID_ONLY = false
+
+#
+# DIRECTORIES
+#
+
+# Source data directory
 SRC_DIR = '/mnt/hdd/sabun_src'
+# Source data filename extensions
 SRC_EXT = '_sabun.asc'
+# Temporary directory
+TMP_DIR = '/mnt/ramdisk'
 
+GRID_DIR = 'grid'
+
+MERGE1_DIR = 'merge1'
+# Path of the single mbtiles file
+SINGLE_MBTILES = 'tiles.mbtiles'
+
+#
+# SOURCE DATA SPECIFICATIONS
+#
+
+# Width in pixels
 W = 1125
+# Height in pixels
 H = 750
+
+#
+# RESAMPING PARAMETERS
+# 
 
 RESAMPLING_METHOD = {
   5 => 'q3',
@@ -12,6 +41,9 @@ RESAMPLING_METHOD = {
   125 => 'q3'
 }
 
+#
+# VECTOR TILE DESIGN
+#
 ZOOMS = {
   1 => {
     :maxzoom => 15,
@@ -33,23 +65,26 @@ ZOOMS = {
 MINZOOM = 5
 MAXZOOM = 15
 
-TMP_DIR = '/mnt/ramdisk'
+LAYER = 'sabun'
+PROPERTY = 'a'
+MASK_LAYER = 'mask'
+MASK_PROPERTY = 'a'
 
-GRID_DIR = 'grid'
-MERGE1_DIR = 'merge1'
-SINGLE_MBTILES = 'tiles.mbtiles'
+
+#
+# TARGETS OF PRODUCTION
+#
 
 #TARGETS = /^(523950)/
 #TARGETS = /^(523950|523940)/
 #TARGETS = /^(5132)/
 #TARGETS = /^(5338|5339|5135|5132)/
 #TARGETS = /^(5338|5339|5035|5135|5132)/
-TARGETS = /^(5238|5239|5240|5340)/
+TARGETS = /^(30|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|5238|5239|5240|5340|5438|5439|5440)/
 
-LAYER = 'sabun'
-PROPERTY = 'a'
-MASK_LAYER = 'mask'
-MASK_PROPERTY = 'a'
+#
+# STYLE DESIGN
+# 
 
 BASE_URL = 'http://m354:9966'
 #BASE_URL = 'http://163.42.60.188:9966/all'
