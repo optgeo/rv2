@@ -1,8 +1,8 @@
 {
   "version": 8,
   "center": [
-    132.994995,
-    34.592519
+    145.662231,
+    43.369119
   ],
   "zoom": 15,
   "sprite": "https://gsi-cyberjapan.github.io/gsivectortile-mapbox-gl-js/sprite/pale",
@@ -14,7 +14,7 @@
       "maxzoom": 15,
       "attribution": "M Project",
       "tiles": [
-        "http://m354:9966/zxy/{z}/{x}/{y}.pbf"
+        "http://126.74.62.65/zxy/{z}/{x}/{y}.pbf"
       ]
     },
     "i": {
